@@ -7,7 +7,6 @@ import "./styles.css";
 
 function App() {
   const game = new GameOfLife(5, 5);
-  game.copyMatrixAt(1, 1, [[0, 0, 0], [1, 1, 1], [0, 0, 0]]);
   return (
     <div className="App">
       <h1>Hello CodeSandbox</h1>

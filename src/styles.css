@@ -3,17 +3,23 @@
   text-align: center;
 }
 
+.row {
+  /* Hack to remove whitespace between rows */
+  font-size: 0;
+}
+
 .cell {
   cursor: pointer;
   display: inline-block;
   height: 30px;
   width: 30px;
+  border: 1px solid black;
 }
 
 .live.cell {
-  background-color: green;
+  background-color: black;
 }
 
 .dead.cell {
-  background-color: saddlebrown;
+  background-color: white;
 }

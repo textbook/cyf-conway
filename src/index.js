@@ -51,10 +51,8 @@ class App extends React.Component {
     const game = this.state.game;
     return (
       <div className="App">
-        <h1>Hello CodeSandbox</h1>
-        <h2>
-          Created a {game.width} x {game.height} game.
-        </h2>
+        <h1>Conway's Game of Life</h1>
+        <h2>Code Your Future Summit 2018</h2>
         <div className="matrix">
           {game.matrix.map((row, rowIndex) => (
               <div className="row" key={rowIndex}>

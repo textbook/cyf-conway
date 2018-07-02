@@ -20,6 +20,13 @@ class App extends React.Component {
         <h2>
           Created a {game.width} x {game.height} game.
         </h2>
+        <div class="matrix">
+          {game.matrix.map(row => {
+            return (<div className="row">
+              {row.map(cell => <div className="cell">{cell}</div>)}
+            </div>)
+          })}
+        </div>
       </div>
     );
   }

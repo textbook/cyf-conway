@@ -9,7 +9,10 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { game: new GameOfLife(5, 5) };
+    this.state = {
+      game: new GameOfLife(5, 5),
+      running: false,
+    };
   }
 
   clicked = (row, col) => {
@@ -22,6 +25,11 @@ class App extends React.Component {
   tick = () => {
     this.state.game.tick();
     this.forceUpdate();
+  };
+
+  run = () => {
+    this.setState({ running: true });
+    setInterval(() => this.tick(), 100);
   };
 
   render() {
@@ -43,7 +51,8 @@ class App extends React.Component {
               </div>
           ))}
         </div>
-        <button onClick={() => this.tick()}>Tick</button>
+        <button onClick={() => this.tick()} disabled={this.state.running}>Tick</button>
+        <button onClick={() => this.run()}>Run</button>
       </div>
     );
   }

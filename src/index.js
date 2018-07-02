@@ -33,7 +33,12 @@ class App extends React.Component {
 
   run = () => {
     this.setState({ running: true });
-    setInterval(() => this.tick(), 100);
+    this.interval = setInterval(() => this.tick(), 100);
+  };
+
+  stop = () => {
+    clearInterval(this.interval);
+    this.setState({ running: false });
   };
 
   random = () => {
@@ -63,7 +68,8 @@ class App extends React.Component {
         </div>
         <button onClick={() => this.random()} disabled={this.state.running}>Random</button>
         <button onClick={() => this.tick()} disabled={this.state.running}>Tick</button>
-        <button onClick={() => this.run()}>Run</button>
+        <button onClick={() => this.run()} disabled={this.state.running}>Run</button>
+        <button onClick={() => this.stop()} disabled={!this.state.running}>Stop</button>
       </div>
     );
   }

@@ -5,12 +5,16 @@ import GameOfLife from "game-of-life-logic";
 
 import "./styles.css";
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      game: new GameOfLife(5, 5),
+      game: new GameOfLife(10, 10),
       running: false,
     };
   }
@@ -32,6 +36,12 @@ class App extends React.Component {
     setInterval(() => this.tick(), 100);
   };
 
+  random = () => {
+    const matrix = this.state.game.matrix.map(row => row.map(() => getRandomInt(2)));
+    this.state.game.copyMatrixAt(0, 0, matrix);
+    this.forceUpdate();
+  };
+
   render() {
     const game = this.state.game;
     return (
@@ -51,6 +61,7 @@ class App extends React.Component {
               </div>
           ))}
         </div>
+        <button onClick={() => this.random()} disabled={this.state.running}>Random</button>
         <button onClick={() => this.tick()} disabled={this.state.running}>Tick</button>
         <button onClick={() => this.run()}>Run</button>
       </div>

@@ -19,6 +19,11 @@ class App extends React.Component {
     this.forceUpdate();
   };
 
+  tick = () => {
+    this.state.game.tick();
+    this.forceUpdate();
+  };
+
   render() {
     const game = this.state.game;
     return (
@@ -38,6 +43,7 @@ class App extends React.Component {
               </div>
           ))}
         </div>
+        <button onClick={() => this.tick()}>Tick</button>
       </div>
     );
   }

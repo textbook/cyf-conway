@@ -4,7 +4,16 @@
 }
 
 .cell {
+  cursor: pointer;
   display: inline-block;
   height: 30px;
   width: 30px;
+}
+
+.live.cell {
+  background-color: green;
+}
+
+.dead.cell {
+  background-color: saddlebrown;
 }

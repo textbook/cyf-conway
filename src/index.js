@@ -31,9 +31,9 @@ class App extends React.Component {
           {game.matrix.map((row, rowIndex) => (
               <div className="row" key={rowIndex}>
                 {row.map((cell, colIndex) => (
-                    <div className="cell" key={colIndex} onClick={() => this.clicked(rowIndex, colIndex)}>
-                      {cell}
-                    </div>
+                    <div className={cell ? 'live cell' : 'dead cell'}
+                         key={colIndex}
+                         onClick={() => this.clicked(rowIndex, colIndex)}></div>
                 ))}
               </div>
           ))}
